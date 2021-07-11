@@ -1,0 +1,49 @@
+{
+  "name": "ano-it-com/eav-reasoner-bundle",
+  "version": "0.1.0",
+  "description": "Reasoner for EAV Bundle",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "AUTONOMOUS NONPROFIT ORGANIZATION \"RESEARCH CENTER\" INFORMATION TECHNOLOGIES",
+      "homepage": "https://github.com/ano-it-com/"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ano-it-com/eav-bundle": "^0.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.4",
+    "ano-it-com/eav-bundle": "^0.1.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "ANOITCOM\\EAVReasonerBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ANOITCOM\\EAVReasonerBundle\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/simple-phpunit"
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "^5.2"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../eav"
+    }
+  ]
+}

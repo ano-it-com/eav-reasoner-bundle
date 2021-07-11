@@ -1,0 +1,96 @@
+eav:
+    base_tables:
+        namespace:
+            table:                eav_namespace
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\NamespaceEntity\EAVNamespace
+            persister:            ANOITCOM\EAVBundle\EAV\ORM\Persistence\Persister\NamespaceEntity\EAVNamespacePersister
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                iri:                 ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                title:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                comment:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        entity:
+            table:                eav_entity
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\Entity\EAVEntity
+            persister:            ANOITCOM\EAVBundle\EAV\ORM\Persistence\Persister\Entity\EAVEntityPersister
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                type_id:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        type:
+            table:                eav_type
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\Type\EAVType
+            persister:            ANOITCOM\EAVBundle\EAV\ORM\Persistence\Persister\Type\EAVTypePersister
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                alias:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                title:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                comment:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        type_property:
+            table:                eav_type_property
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\Type\EAVTypeProperty
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                type_id:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                value_type:          ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\IntType
+                alias:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                title:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                comment:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        values:
+            table:                eav_values
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\Entity\EAVEntityPropertyValue
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                entity_id:           ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                type_property_id:    ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                value_text:          ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                value_int:           ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\IntType
+                value_decimal:       ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\DecimalType
+                value_bool:          ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BoolType
+                value_datetime:      
+                    - ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\DateType
+                    - ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\DateTimeType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        entity_relation:
+            table:                eav_entity_relation
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\EntityRelation\EAVEntityRelation
+            persister:            ANOITCOM\EAVBundle\EAV\ORM\Persistence\Persister\EntityRelation\EAVEntityRelationPersister
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                type_id:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                from_id:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                to_id:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType
+        entity_relation_type:
+            table:                eav_entity_relation_type
+            class:                ANOITCOM\EAVBundle\EAV\ORM\Entity\EntityRelation\EAVEntityRelationType
+            persister:            ANOITCOM\EAVBundle\EAV\ORM\Persistence\Persister\EntityRelationType\EAVEntityRelationTypePersister
+            columns:
+
+                # Defaults:
+                id:                  ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                namespace_id:        ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                alias:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                title:               ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                comment:             ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\TextType
+                meta:                ANOITCOM\EAVBundle\EAV\ORM\DBAL\Types\BasicJsonMetaType

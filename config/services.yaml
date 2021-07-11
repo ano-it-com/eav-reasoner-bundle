@@ -1,0 +1,90 @@
+parameters:
+
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  ANOITCOM\EAVReasonerBundle\:
+    resource: '../src/*'
+
+  _instanceof:
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\EntityFilters\EntityFilterHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.entity.filter.handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\Patterns\EntityPatternMatcherInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.entity.pattern_matcher' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\GraphPatternMatcherInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.pattern_matcher' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\Actions\EntityPatternActionHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.entity.action_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Actions\GraphPatternActionHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.action_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\ReasonerFactory\ReasonerBuilderInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.reasoner.builder' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Node\NodeSelectorHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.node_selector_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Node\NodeFilterHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.node_filter_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Edge\EdgeSelectorHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.edge_selector_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Groups\GroupingRule\Conditions\GroupingConditionHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.grouping_condition_handler' ]
+
+    ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Groups\GroupingRule\Filters\GroupsFilterHandlerInterface:
+      tags: [ 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.groups_filter_handler' ]
+
+
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\EntityFilters\EntityFilterHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.entity.filter.handler', default_index_method: getSupportedFilter }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\Patterns\EntityPatternMatchersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.entity.pattern_matcher', default_index_method: getSupportedPattern }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\GraphPatternMatchersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.pattern_matcher', default_index_method: getSupportedPattern }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\EntityPattern\Actions\EntityPatternActionHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.entity.action_handler', default_index_method: getSupportedAction }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Actions\GraphPatternActionHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.action_handler', default_index_method: getSupportedAction }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\ReasonerFactory\ReasonerBuildersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.reasoner.builder' }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Node\NodeSelectorHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.node_selector_handler', default_index_method: getSupportedSelector }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Node\NodeFilterHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.node_filter_handler', default_index_method: getSupportedFilter }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Patterns\ByNodesAndEdgesPattern\Edge\EdgeSelectorHandlersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.edge_selector_handler', default_index_method: getSupportedSelector }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Groups\GroupingRule\Conditions\GroupingConditionsLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.grouping_condition_handler', default_index_method: getSupportedCondition }
+
+  ANOITCOM\EAVReasonerBundle\Reasoner\GroupReasoning\GraphPattern\Groups\GroupingRule\Filters\GroupsFiltersLocator:
+    arguments:
+      $locator: !tagged_locator { tag: 'ANOITCOM.eav-reasoner.group.graph.by_nodes_and_edges_pattern.groups_filter_handler', default_index_method: getSupportedFilter }

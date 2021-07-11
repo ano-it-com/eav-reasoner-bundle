@@ -1,0 +1,11 @@
+framework:
+  test: true
+
+doctrine:
+  # Подключаем SQLITE БД для тестов в var/test.db
+  dbal:
+    url: '%env(resolve:DATABASE_URL)%'
+
+doctrine_migrations:
+  migrations_paths:
+    'DoctrineMigrations': '%kernel.cache_dir%/migrations'
